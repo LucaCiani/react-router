@@ -1,0 +1,14 @@
+body {
+    background-color: darkblue;
+    color: white;
+}
+
+.header-link {
+    margin-right: 2rem;
+    color: cyan;
+    text-decoration: none;
+}
+
+.header-link:active {
+    background-color: black;
+}
