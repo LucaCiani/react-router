@@ -3,6 +3,7 @@ import DefaultLayout from "./assets/layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import Products from "./pages/Products";
 import AboutUs from "./pages/AboutUs";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                     <Route path="/" Component={HomePage} />
                     <Route path="/products" Component={Products} />
                     <Route path="/about-us" Component={AboutUs} />
+                    <Route path="/products/:id" Component={SingleProduct} />
                 </Route>
             </Routes>
         </BrowserRouter>

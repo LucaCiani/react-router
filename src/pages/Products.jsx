@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
+
+    const productsUrl = "https://fakestoreapi.com/products";
+
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
+        fetch(productsUrl)
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
@@ -14,23 +18,26 @@ export default function Products() {
                 products.map((product) => {
                     return (
                         <div key={product.id} className="col">
-                            <div className="card h-100">
-                                <img
-                                    className="card-img-top"
-                                    src={product.image}
-                                    alt={product.title}
-                                />
-                                <div className="card-body">
-                                    <h5 className="card-title">
-                                        {product.title}
-                                    </h5>
-                                    <p>
-                                        <b>€ {product.price}</b>
-                                    </p>
-                                    <p>DESCRIPTION:</p>
-                                    <p>{product.description}</p>
+                            <Link
+                                to={`${product.id}`}
+                                className="link-underline link-underline-opacity-0"
+                            >
+                                <div className="card h-100">
+                                    <img
+                                        className="card-img-top"
+                                        src={product.image}
+                                        alt={product.title}
+                                    />
+                                    <div className="card-body">
+                                        <h5 className="card-title">
+                                            {product.title}
+                                        </h5>
+                                        <p>
+                                            <b>€ {product.price}</b>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     );
                 })}

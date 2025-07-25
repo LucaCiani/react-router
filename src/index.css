@@ -14,3 +14,7 @@ body {
     color: white;
     background-color: black;
 }
+
+img {
+    aspect-ratio: 1;
+}
